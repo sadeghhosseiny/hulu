@@ -8,7 +8,6 @@ type itemTypes = {
 };
 
 function HeaderItem({ item }: itemTypes) {
-  console.log(item);
   return (
     <div className="text-white flex flex-col justify-center items-center w-12 sm:w-20 cursor-pointer group hover:text-white">
       <item.Icon className="h-6 mx-auto group-hover:animate-bounce" />

@@ -48,8 +48,8 @@ function Header() {
           <HeaderItem key={i} item={item} />
         ))}
       </div>
-      <div className="sm:mr-5 mx-auto -mt-8 sm:-mt-5">
-        <Image src={logo} width={90} height={50} objectFit="contain" />
+      <div className="sm:mr-5 mx-auto -mt-8 sm:mt-0">
+        <Image src={logo} width={90} height={65} objectFit="contain" />
       </div>
     </header>
   );
