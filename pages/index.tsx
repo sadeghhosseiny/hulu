@@ -2,10 +2,12 @@ import axios, { Axios } from "axios";
 import { GetServerSideProps, GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
 import Header from "../components/header/header";
+import Movies from "../components/movies/movies";
 import Navbar from "../components/navbar/navbar";
 import requests from "../services/requests/requests";
 
-export default function Home(props) {
+export default function Home({ movies }) {
+  // console.log(props);
   return (
     <div>
       <Head>
@@ -13,6 +15,7 @@ export default function Home(props) {
       </Head>
       <Header />
       <Navbar />
+      <Movies movies={movies} />
     </div>
   );
 }
