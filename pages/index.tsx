@@ -7,7 +7,7 @@ import Navbar from "../components/navbar/navbar";
 import requests from "../services/requests/requests";
 
 export default function Home({ movies }) {
-  // console.log(props);
+  console.log(movies);
   return (
     <div>
       <Head>
