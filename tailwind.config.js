@@ -8,7 +8,11 @@ module.exports = {
   theme: {
     extend: {
       screens: {
-        "3xl": "2000px"
+        "3xl": "2000px",
+        'desktop': { 'min': '1660px', 'max': '1920px' },
+      },
+      inset: {
+        '1600': '38.5%'
       }
     },
   },
