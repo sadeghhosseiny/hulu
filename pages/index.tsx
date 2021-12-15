@@ -1,5 +1,4 @@
-import axios, { Axios } from "axios";
-import { GetServerSideProps, GetStaticPaths, GetStaticProps } from "next";
+import { GetServerSideProps } from "next";
 import Head from "next/head";
 import Header from "../components/header/header";
 import Movies from "../components/movies/movies";
@@ -7,7 +6,6 @@ import Navbar from "../components/navbar/navbar";
 import requests from "../services/requests/requests";
 
 export default function Home({ movies }) {
-  console.log(movies);
   return (
     <div>
       <Head>

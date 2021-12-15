@@ -26,17 +26,18 @@ const Movie = forwardRef(
   ({ movie }: movieType | any, ref: React.LegacyRef<HTMLDivElement>) => {
     const [isOpen, setOpen] = useState(false);
     const [id, setId] = useState(null);
+    console.log("MVM ", movie);
 
-    const [text, setText] = useState("Sorry, We can't found any trailer :((");
+    const [text, setText] = useState("Sorry, We don't found any trailer :(");
 
     const handlePlay = async () => {
       const base = "https://api.themoviedb.org/3";
-      const movies = await fetch(
+      const movieDetial = await fetch(
         `${base}/movie/${movie?.id}?api_key=cd778997bbca0bb69eb4f1347a8b2e1d&append_to_response=videos`,
       ).then((res) => res.json());
-      setId(movies?.videos?.results[0]?.key);
+      setId(movieDetial?.videos?.results[0]?.key);
       setOpen(true);
-      !movies?.videos?.results[0]?.key && handleTxt();
+      !movieDetial?.videos?.results[0]?.key && handleTxt();
     };
 
     const handleTxt = () => {
@@ -47,7 +48,7 @@ const Movie = forwardRef(
         }, 2500);
 
       setTimeout(() => {
-        setText("Sorry, We can't found any trailer :((");
+        setText("Sorry, We don't found any trailer :(");
       }, 3000);
     };
 
@@ -66,7 +67,7 @@ const Movie = forwardRef(
               onClose={() => setOpen(false)}
             />
           ) : (
-            <div className="absolute flex justify-center text-xl font-extralight -top-8 z-40 bg-gray-700 w-full h-10">
+            <div className="absolute flex justify-center text-xl font-extralight -top-8 z-40 bg-gray-700 w-[calc(100%-1rem)] h-10">
               <p>{text}</p>
             </div>
           )
@@ -74,13 +75,14 @@ const Movie = forwardRef(
           ""
         )}
         <div className="overflow-hidden cursor-pointer group-scoped relative">
-          <Image
-            layout="responsive"
-            className="md:hover:scale-110 md:hover:opacity-50 transition duration-500"
-            src={`${baseUrl}${movie?.backdrop_path || movie?.poster_path}`}
-            width={1980}
-            height={1080}
-          />
+          <div className="md:group-scoped-hover:scale-110 md:group-scoped-hover:opacity-50 transition duration-500">
+            <Image
+              layout="responsive"
+              src={`${baseUrl}${movie?.backdrop_path || movie?.poster_path}`}
+              width={1980}
+              height={1080}
+            />
+          </div>
           <button
             onClick={handlePlay}
             className="md:absolute mx-auto my-5 flex items-center justify-center p-4 md:opacity-0 rounded-lg group-scoped-hover:opacity-100
@@ -96,16 +98,16 @@ const Movie = forwardRef(
             {movie?.overview}
           </p>
         </div>
-        <div className="p-2">
-          <h2 className="text-2xl">
+        <>
+          <h2 className="p-2 text-2xl lg:group-scoped-hover:text-3xl transition-all duration-500">
             {movie?.title || movie?.original_title || movie?.original_name}
           </h2>
-          <p className="flex items-center md:opacity-0 group-scoped-hover:opacity-100 transition duration-300">
+          <p className="px-2 flex items-center md:opacity-0 group-scoped-hover:opacity-100 transition duration-300">
             {movie?.release_date || movie?.first_air_date}.{" "}
             <ThumbUpIcon className="h-5 mx-2" />
             {movie?.vote_count}
           </p>
-        </div>
+        </>
       </div>
     );
   },

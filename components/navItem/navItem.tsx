@@ -11,7 +11,7 @@ function NavItem({ title, route, onClick }: titleTypes) {
   return (
     <h1
       onClick={() => onClick(route)}
-      className="text-white cursor-pointer transition transform duration-300 hover:scale-110"
+      className="text-gray-400 pb-2 cursor-pointer transition transform duration-300 hover:scale-125 hover:text-white"
     >
       {title}
     </h1>
