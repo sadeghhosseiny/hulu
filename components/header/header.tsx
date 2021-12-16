@@ -49,7 +49,13 @@ function Header() {
         ))}
       </div>
       <div className="sm:mr-5 mx-auto -mt-8 sm:mt-0">
-        <Image src={logo} width={90} height={65} objectFit="contain" />
+        <Image
+          src={logo}
+          width={90}
+          height={65}
+          objectFit="contain"
+          alt="icon"
+        />
       </div>
     </header>
   );

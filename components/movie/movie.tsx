@@ -26,7 +26,6 @@ const Movie = forwardRef(
   ({ movie }: movieType | any, ref: React.LegacyRef<HTMLDivElement>) => {
     const [isOpen, setOpen] = useState(false);
     const [id, setId] = useState(null);
-    console.log("MVM ", movie);
 
     const [text, setText] = useState("Sorry, We don't found any trailer :(");
 
@@ -81,6 +80,7 @@ const Movie = forwardRef(
               src={`${baseUrl}${movie?.backdrop_path || movie?.poster_path}`}
               width={1980}
               height={1080}
+              alt="movieImage"
             />
           </div>
           <button
@@ -112,5 +112,8 @@ const Movie = forwardRef(
     );
   },
 );
+
+//if you use arrow function for your component it's better to add this line otherwise it throws an error during 'npm run build'
+Movie.displayName = "Movie";
 
 export default Movie;
