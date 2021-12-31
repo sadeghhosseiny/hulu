@@ -2,7 +2,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 NOTE: connect with VPN to watch trailers.
 
-**************** LIVE https://hulu-five-rho.vercel.app *********************
+# 🚀 [LIVE_WEBSITE](https://hulu-five-rho.vercel.app)
 
 
 ## Getting Started
